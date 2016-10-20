@@ -32,10 +32,13 @@ public class TestTableSeating extends TestCase {
 	
 	public void testCanSit() {
 		TableSeating tS = new TableSeating();
-		boolean [] tables = new boolean[]{true, true, false, false, false};
-		int pos = 2;
+		boolean [] tables = new boolean[]{false, false, true, false, false, false, true, true, false, false, false, false};
+		int pos = 3;
 		int tabPerCust = 3;
-		assertTrue(tS.canSit(tables, pos, tabPerCust));
+		for (int i = 0; i < 3000; i++) {
+			pos = i%11;
+			assertTrue(tS.canSit(tables, pos, tabPerCust));
+		}
 	}
 	
 	public void testSitCust() {

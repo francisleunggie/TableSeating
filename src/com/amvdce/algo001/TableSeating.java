@@ -72,10 +72,18 @@ public class TableSeating {
 	 */
 	protected boolean canSit(boolean[] tables, int pos, int tabPerCust) {
 		if (pos + tabPerCust > tables.length) return false;
-		boolean[] tableSub = Arrays.copyOfRange(tables, pos, pos+tabPerCust);
-		if (countFalse(tableSub) < tableSub.length) return false;
+		for (int i = pos; i < pos+tabPerCust; i++) {
+			if (tables[i]) return false;
+		}
 		return true;		
 	}
+	
+//	protected boolean canSit(boolean[] tables, int pos, int tabPerCust) {
+//		if (pos + tabPerCust > tables.length) return false;
+//		boolean[] tableSub = Arrays.copyOfRange(tables, pos, pos+tabPerCust);
+//		if (countFalse(tableSub) < tableSub.length) return false;
+//		return true;		
+//	}
 	
 	
 	/**
